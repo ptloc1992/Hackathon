@@ -85,24 +85,18 @@ namespace WebApi
             app.UseStaticFiles();
 
             app.UseAuthentication();
+            app.UseMvc();
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.OAuthClientId(Configuration["Swagger:ClientId"]);
                 c.OAuthClientSecret(Configuration["Swagger:ClientSecret"]);
-                //c.OAuth2RedirectUrl(new Uri($"urn:ietf:wg:oauth:2.0:oob").ToString());
+                c.OAuth2RedirectUrl(@"urn:ietf:wg:oauth:2.0:oob");
                 c.OAuthAppName("My API V1");
                 c.OAuthScopeSeparator(" ");
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller}/{action=Index}/{id?}");
-            //});
         }
     }
 }
