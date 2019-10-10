@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using WebApi.Dtos.Base;
+using WebApi.Enums;
 
 namespace WebApi.Helpers
 {
@@ -13,24 +15,48 @@ namespace WebApi.Helpers
     {
         static readonly HttpClient client = new HttpClient();
 
-        public static async Task<ResponseBase<T>> Call<T>(HttpMethod method, string requestUri, List<KeyValuePair<string, string>> formData = null, string body = null)
+        public static async Task<ResponseBase<T>> Call<T>(HttpContext context, MethodBase method, string requestUri, List<KeyValuePair<string, string>> formData = null, string body = null, bool isLogin = false)
         {
             var result = new ResponseBase<T>();
             try
             {
                 var client = new HttpClient();
-                client.BaseAddress = new Uri("https://id.acb.com.vn");
-                var request = new HttpRequestMessage(HttpMethod.Post, requestUri);
-
-                //var keyValues = new List<KeyValuePair<string, string>>();
-                //keyValues.Add(new KeyValuePair<string, string>("site", "http://www.google.com"));
-                //keyValues.Add(new KeyValuePair<string, string>("content", "This is some content"));
+                var request = new HttpRequestMessage();
+                client.BaseAddress = isLogin ? new Uri("https://id.acb.com.vn") : new Uri("https://api.dev.acb.com.vn");
+                if (context != null)
+                {
+                    var auth = context.Request.Headers.FirstOrDefault(x => x.Key == "Authorization");
+                    if (auth.Value.ToString() != null)
+                    {
+                        client.DefaultRequestHeaders.Add("Authorization", string.Format("Bearer {0}", auth.Value.ToString()));
+                    }
+                }
+                switch (method)
+                {
+                    case MethodBase.GET:
+                        request = new HttpRequestMessage(HttpMethod.Get, requestUri);
+                        break;
+                    case MethodBase.POST:
+                        request = new HttpRequestMessage(HttpMethod.Post, requestUri);
+                        break;
+                    case MethodBase.PUT:
+                        break;
+                    case MethodBase.PATH:
+                        break;
+                    case MethodBase.DELETE:
+                        break;
+                    default:
+                        request = new HttpRequestMessage(HttpMethod.Post, requestUri);
+                        break;
+                }
                 if (formData != null)
                 {
                     request.Content = new FormUrlEncodedContent(formData);
                 }
-                
-
+                if (!string.IsNullOrEmpty(body))
+                {
+                    request.Content = new StringContent(body, Encoding.UTF8, "application/json");
+                }
                 var response = await client.SendAsync(request);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {

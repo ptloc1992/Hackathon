@@ -45,18 +45,20 @@ namespace WebApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CashBack APIs", Version = "v1" });
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.OAuth2,
-                    Flows = new OpenApiOAuthFlows
-                    {
-                        AuthorizationCode = new OpenApiOAuthFlow
-                        {
-                            AuthorizationUrl = new Uri($"https://id.acb.com.vn/auth/realms/soba/protocol/openid-connect/auth"),
-                            TokenUrl = new Uri($"https://id.acb.com.vn/auth/realms/soba/protocol/openid-connect/token"),
-                        }
-                    },
-                });
+                //c.DescribeAllEnumsAsStrings(); // this will do the trick
+                //c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                //{
+                //    Type = SecuritySchemeType.OAuth2,
+                //    Flows = new OpenApiOAuthFlows
+                //    {
+                //        AuthorizationCode = new OpenApiOAuthFlow
+                //        {
+                //            AuthorizationUrl = new Uri($"https://id.acb.com.vn/auth/realms/soba/protocol/openid-connect/auth"),
+                //            TokenUrl = new Uri($"https://id.acb.com.vn/auth/realms/soba/protocol/openid-connect/token"),
+                //        }
+                //    },
+                //});
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme { In = ParameterLocation.Header, Description = "Please enter JWT with Bearer into field", Name = "Authorization", Type = SecuritySchemeType.ApiKey });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {

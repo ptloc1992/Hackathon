@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Models\" />
+    <Folder Include="Dtos\Profile\Response\" />
   </ItemGroup>
 
 </Project>
