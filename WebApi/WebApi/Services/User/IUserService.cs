@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace WebApi.Services.User
 {
-    public class IUserService
+    public interface IUserService
     {
+        bool TrackLogin(string code);
     }
 }

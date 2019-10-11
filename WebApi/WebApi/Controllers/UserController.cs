@@ -10,6 +10,7 @@ using WebApi.Dtos.Request.User;
 using WebApi.Dtos.User;
 using WebApi.Dtos.User.Response;
 using WebApi.Enums;
+using WebApi.Services.User;
 
 namespace WebApi.Controllers
 {
@@ -17,8 +18,11 @@ namespace WebApi.Controllers
     [Route("api/user")]
     public class UserController : ControllerBase
     {
-        public IConfiguration Configuration { get; }
-
+        private readonly IUserService _userSvc;
+        public UserController(IUserService userSvc)
+        {
+            _userSvc = userSvc;
+        }
         /// <summary>
         /// Đăng nhập
         /// </summary>
@@ -36,6 +40,7 @@ namespace WebApi.Controllers
             var result = await Helpers.ACBOpenApi.Call<dynamic>(Request.HttpContext, MethodBase.POST, @"auth/realms/soba/protocol/openid-connect/token", formData, null, true);
             if (result.Data != null)
             {
+                _userSvc.TrackLogin(login.Code);
                 return Ok(result.Data);
             }
             else

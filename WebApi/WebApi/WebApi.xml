@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Controllers.AccountController.GetAccount(System.String,System.Boolean)">
+            <summary>
+            Lấy thông tin tài khoản
+            </summary>
+            <param name="account_id"></param>
+            <param name="display_balance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.ContactController.GetContact(WebApi.Dtos.Contact.Request.ContactRequestDto)">
+            <summary>
+            Lấy toàn bộ danh bạ, thông tin liên lạc
+            </summary>
+            <param name="request">Điều kiện tìm kiếm</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.ProfileController.GetProfileInfo(System.Boolean)">
+            <summary>
+            Truy vấn thông tin chủ tài khoản
+            </summary>
+            <param name="detailed">Chi tiết. (true/false)</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.ProfileController.GetProfile(WebApi.Dtos.Profile.Request.ProfileRequestDto)">
+            <summary>
+            Truy vấn thông tin tài khoản ngân hàng
+            </summary>
+            <param name="request">Điều kiện tìm kiếm</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.TransactionController.GetTransaction(WebApi.Dtos.Transaction.Request.TransactionRequestDto)">
+            <summary>
+            Truy vấn thông tin các giao dịch
+            </summary>
+            <param name="request">Điều kiện tìm kiếm</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.TransactionController.ApprovalTransaction(WebApi.Dtos.Transaction.Request.TransactionApprovalDto)">
+            <summary>
+            Phê duyệt thanh toán
+            </summary>
+            <param name="request">Nội dung thanh toán</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.TransactionController.ConfirmTransaction(WebApi.Dtos.Transaction.Request.TransactionConfirmationDto)">
+            <summary>
+            Ủy quyền thực hiện giao dịch
+            </summary>
+            <param name="request">Nội dung ủy quyền</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.TransactionController.AddTransaction(WebApi.Dtos.Transaction.Request.TransactionDto)">
+            <summary>
+            Thực hiện một giao dịch (trạng thái chờ-pending)
+            </summary>
+            <param name="request">Nội dung giao dịch</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.Login(WebApi.Dtos.Request.User.LoginRequestDto)">
+            <summary>
+            Đăng nhập
+            </summary>
+            <param name="login">Code đăng nhập</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Helpers.QueryStringExtension.GetQueryString(System.Object)">
+            <summary>
+            serialize an object into query-string format
+            Usage:
+            string queryString = foo.GetQueryString();
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

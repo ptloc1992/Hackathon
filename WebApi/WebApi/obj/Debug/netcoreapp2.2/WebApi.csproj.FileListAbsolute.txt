@@ -3,7 +3,6 @@ E:\Hoc\Hackathon\CashBack\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.runtimeco
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.runtimeconfig.dev.json
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.dll
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.pdb
-E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.csprojAssemblyReference.cache
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.csproj.CoreCompileInputs.cache
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorAssemblyInfo.cache
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorAssemblyInfo.cs
@@ -12,3 +11,5 @@ E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.AssemblyI
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorTargetAssemblyInfo.cache
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.dll
 E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.pdb
+E:\Hoc\Hackathon\CashBack\WebApi\WebApi\bin\Debug\netcoreapp2.2\WebApi.xml
+E:\Hoc\Hackathon\CashBack\WebApi\WebApi\obj\Debug\netcoreapp2.2\WebApi.csprojAssemblyReference.cache
